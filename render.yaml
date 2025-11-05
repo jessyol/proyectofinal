@@ -2,6 +2,7 @@ services:
   - type: web
     name: ministock-api
     plan: free
+    runtime: java
     envVars:
       - key: JAVA_VERSION
         value: 21
