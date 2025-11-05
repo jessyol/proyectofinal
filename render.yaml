@@ -2,9 +2,10 @@ services:
   - type: web
     name: ministock-api
     plan: free
-    runtime: java
+    runtime: docker
     envVars:
       - key: JAVA_VERSION
         value: 21
     buildCommand: "./mvnw clean install -DskipTests"
     startCommand: "java -jar target/demo-0.0.1-SNAPSHOT.jar"
+
