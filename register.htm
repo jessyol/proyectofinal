@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Registrar usuario</title></head>
+  <meta charset="utf-8">
+  <title>MiniStock - Inicio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<body>
+
+ <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <img src="img/logo1.jpg" alt="MiniStock" />
+        <span>MiniStock</span>
+      </div>
+
+       <nav class="main-nav" id="mainNav">
+          <a href="index.html">Inicio</a>
+          <a href="login.html">Login</a>
+  </nav>
+
+ <button class="hamburger" id="hamburger" aria-label="menu">
+        <i class="fa fa-bars"></i>
+      </button>
+
+
+  </div>
+ 
+  </header>
+  <script src="app.js"></script>
+
+  <h2>Registro</h2>
+  <main class="container" style="max-width:420px;margin-top:4rem">
+  <form id="regForm">
+    <input name="nombre" placeholder="Nombre" required><br>
+    <input type="email" name="email" placeholder="Correo" required><br>
+    <input type="password" name="password" placeholder="Contraseña" required><br>
+    <select name="role">
+      <option value="admin">Admin</option>
+      <option value="empleado">Empleado</option>
+    </select><br>
+    <button type="submit">Registrar</button>
+  </form>
+  <div id="msg"></div>
+  </main>
+
+  <script>
+    document.getElementById("regForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const body = {
+        nombre: form.nombre.value,
+        email: form.email.value,
+        password: form.password.value,
+        role: form.role.value
+      };
+      const res = await fetch("http://localhost:8080/api/auth/register", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(body)
+      });
+      const data = await res.json();
+      document.getElementById("msg").innerText = res.ok ? "Usuario creado ✅" : "Error: " + (data.detail || "");
+    });
+  </script>
+</body>
+</html>
+</body>
+</html>

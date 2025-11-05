@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>MiniStock - Productos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+      <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <img src="img/logo1.jpg" alt="MiniStock" />
+        <span>MiniStock</span>
+      </div>
+
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html">Inicio</a>
+        <a href="login.html" onclick="logout()">Salir</a>
+         </nav>
+         <button class="hamburger" id="hamburger" aria-label="menu">
+            <i class="fa fa-bars"></i>
+         </button>
+       </div>
+      </header>
+
+
+  <main class="container">
+    <h1>Gestión de Productos</h1>
+
+   
+    <!-- Lista de productos -->
+    <section id="lista-productos">
+      <h2>Lista de productos</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th><th>Nombre</th><th>Precio</th><th>Stock</th><th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="productosBody"></tbody>
+      </table>
+    </section>
+
+    <!-- Nuevo producto -->
+    <section id="acciones-producto" style="margin-bottom: 2rem;">
+    <h2>Acciones</h2>
+    <a href="new-product.html" class="btn primary">
+        <i class="fa fa-plus"></i> Añadir Nuevo Producto
+    </a>
+</section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 MiniStock</p>
+  </footer>
+
+  <script src="products.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>

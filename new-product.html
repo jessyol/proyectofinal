@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+  <title>MiniStock - Inicio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+
+
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <img src="img/logo1.jpg" alt="MiniStock" />
+        <span>MiniStock</span>
+      </div>
+
+       <nav class="main-nav" id="mainNav">
+          <a href="index.html">Inicio</a>
+          <a href="products.html">Productos</a>
+         </nav>
+       <button class="hamburger" id="hamburger" aria-label="menu">
+          <i class="fa fa-bars"></i>
+        </button>
+
+     </div>
+    </header>
+
+    <script src="app.js"></script>
+
+
+<body>
+  <main class="container" style="max-width:700px;margin-top:2rem">
+    <h2>Nuevo Producto</h2>
+    <form id="productForm">
+      <input name="nombre" placeholder="Nombre" required style="width:100%;padding:.6rem;margin:.4rem 0;"><br>
+      <input name="precio" type="number" step="0.01" placeholder="Precio" required style="width:100%;padding:.6rem;margin:.4rem 0;"><br>
+      <input name="stock" type="number" placeholder="Stock" required style="width:100%;padding:.6rem;margin:.4rem 0;"><br>
+      <textarea name="descripcion" placeholder="Descripción" style="width:100%;padding:.6rem;margin:.4rem 0;"></textarea><br>
+      <button class="btn primary" type="submit">Crear producto</button>
+    </form>
+    <div id="msg"></div>
+  </main>
+
+ <script>
+    document.getElementById('productForm').addEventListener('submit', async e => {
+      e.preventDefault();
+      const form = e.target;
+      const body = {
+        nombre: form.nombre.value,
+        precio: parseFloat(form.precio.value),
+        stock: parseInt(form.stock.value,10),
+        descripcion: form.descripcion.value || ""
+      };
+      try {
+        const token = localStorage.getItem('token');
+        const res = await fetch('http://localhost:8080/api/products', {
+          method:'POST',
+          headers:{
+            'Content-Type':'application/json',
+            ...(token ? {'Authorization': 'Bearer ' + token} : {})
+          },
+          body: JSON.stringify(body)
+        });
+        const data = await res.json();
+        if(!res.ok){ document.getElementById('msg').innerText = data.detail || 'Error'; return; }
+        document.getElementById('msg').innerText = 'Producto creado';
+        form.reset();
+      } catch(err){
+        document.getElementById('msg').innerText = 'Error de conexión';
+      }
+    });
+  </script>
+</body>
+</html>
+</body>
+</html>

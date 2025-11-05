@@ -1,0 +1,202 @@
+:root{
+  --bg:#f8fbff;
+  --primary:#2b6cb0;
+  --accent:#7bd389;
+  --text:#222;
+  --muted:#666;
+  --card:#ffffff;
+}
+
+*{box-sizing:border-box}
+body{font-family:Inter,system-ui,Arial, sans-serif; margin:0; background:var(--bg); color:var(wit); 
+  -webkit-font-smoothing:antialiased;}
+
+.container{max-width:absolute;
+  margin:0 auto;
+  padding:1rem;}
+
+.header-inner{display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:1rem 0;
+  background-color: #2b6cb0;}
+
+.logo{display:flex;
+  align-items:center;
+  gap:.10rem;
+  font-weight:700}
+
+.logo img{width:50px;
+  height:50px;
+  border-radius:6px;
+  background:#fff;
+  padding:4px;}
+
+
+.main-nav{display:flex;
+  gap:1rem;}
+
+.main-nav a{
+  color:white;
+  :var(--text);
+  text-decoration:none;
+  font-weight:600;
+  padding:.4rem .6rem;
+  border-radius:6px;}
+
+
+.main-nav a:hover{background:rgba(0,0,0,0.06);}
+
+.hamburger{display:none;
+  background:none;
+  border:0;font-size:20px}
+
+
+.hero{padding:3rem 0;
+  text-align:center}
+
+
+.hero h1{font-size:2.6rem;
+  margin:0}
+
+ .hero h1:hover{
+    font-size: 3rem;
+  }
+
+h2{font-size: 14;
+color: black;
+ align-items: center;}
+
+
+.subtitle{color:var(--muted);margin:1rem 0 1.5rem}
+.subtitle:hover{font-size: 2rem;}
+.cta{display:flex;gap:.8rem;justify-content:center}
+.btn{padding:.8rem 1.1rem;border-radius:10px;text-decoration:none;display:inline-block}
+.btn.primary{background:var(--primary);color:#fff}
+.btn.primary:hover{color:black; background-color: #7bd389;}
+.btn.secondary{background:transparent;border:2px solid var(--primary);color:var(--primary)}
+.btn.secondary:hover{background-color: yellow; color: black; border: none;}
+
+.services{background-color: #2b6cb0;}
+.services{padding:2rem 0}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1rem}
+.card{background:var(--card);padding:1.2rem;border-radius:10px;box-shadow:0 6px 16px rgba(8,15,52,0.04);text-align:center}
+.cards :hover{font-size: 25px;}
+.card i{font-size:28px;margin-bottom:.6rem;color:var(--primary)}
+.info-section{background:transparent;padding:1.2rem 0; text-align: center;}
+.info-section :hover{font-size: 25px;}
+.contact{padding:2rem 0;text-align:center}
+.contact :hover{font-size: 25px;}
+
+.site-footer {
+  background: #0f1724;
+  color: #fff;
+  padding: 1.6rem 0;
+  margin-top: 2rem;
+  text-align: center; /* centra todo el contenido */
+}
+
+.footer-grid {
+  display: flex;
+  flex-direction: column; /* apila en vertical */
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Íconos de redes sociales en blanco */
+.social-icons a {
+  color: #fff;
+  font-size: 1.4rem;
+  margin: 0 0.5rem;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #7bd389; /*verde-acento en hover */
+}
+
+
+/* mobile */
+@media (max-width:800px){
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .main-nav{position:fixed;right:0;top:0;background:black;height:100vh;
+    width:70%;flex-direction:column;padding:2rem;
+    transform:translateX(100%);transition:transform .25s ease;
+    box-shadow:-6px 0 24px rgba(0,0,0,.08)}
+  .main-nav.open{transform:translateX(0)}
+  .hamburger{display:block}
+}
+
+
+/* Productos */
+.stats-grid {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.stat-card {
+  flex: 1;
+  min-width: 240px;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+th, td {
+  border: 1px solid #ddd;
+  padding: 0.6rem;
+  text-align: center;
+}
+th {
+  background: var(--primary);
+  color: #fff;
+}
+tr:nth-child(even) { background: #f9f9f9; }
+
+
+
+.imagen {
+  width: 100%; /* La imagen ocupará el 100% del ancho de su contenedor */
+  max-width: 400px; /* Pero nunca será más ancha de 400px */
+  height: auto;     /* Mantiene la proporción automáticamente */
+  border-radius: 8px; /* Añade bordes redondeados */
+}
+
+.imagen:hover {
+  transform: scale(1.05); /* Efecto de zoom al pasar el cursor */
+  transition: transform 0.3s ease; /* Suaviza la transición */
+}
+
+.imagen-mision {
+  width: 100%; /* La imagen ocupará el 100% del ancho de su contenedor */
+  max-width: 800px; /* Pero nunca será más ancha de 600px */
+  height: auto;     /* Mantiene la proporción automáticamente */
+  border-radius: 8px; /* Añade bordes redondeados */
+  margin-top: 1rem; /* Espacio superior */
+}
+
+.imagen-mision:hover {
+  transform: scale(1.05); /* Efecto de zoom al pasar el cursor */
+  transition: transform 0.3s ease; /* Suaviza la transición */
+}
+
+
+.imagen-vision {
+  width: 100%; /* La imagen ocupará el 100% del ancho de su contenedor */
+  max-width: 800px; /* Pero nunca será más ancha de 600px */
+  height: auto;     /* Mantiene la proporción automáticamente */
+  border-radius: 8px; /* Añade bordes redondeados */
+  margin-top: 1rem; /* Espacio superior */
+  border-radius: 3px;
+}
+
+.imagen-vision:hover {
+  transform: scale(1.05); /* Efecto de zoom al pasar el cursor */
+  transition: transform 0.3s ease; /* Suaviza la transición */
+}
